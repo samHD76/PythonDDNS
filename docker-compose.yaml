@@ -1,0 +1,24 @@
+version: '3'
+services:
+  DDNS:
+    image: samhdabd/ddns:0.1
+    environment:
+      email: "test@gmail.com"
+      domain: "Test.domain.com"
+      zoneID: "YOUR ZONEID"
+      globalAPI: "YOUR API KEY"
+      wait: "300"  
+    networks:
+      my_network:
+        ipv4_address: 10.10.1.10 
+    command: ["python3", "./ddns.py"]
+    dns:
+      - 1.1.1.1
+
+networks:
+  my_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.1.0/24
+          gateway: 10.10.1.1    
