@@ -14,7 +14,7 @@ you need to pass following environments for it to work as intended :
 
 and here is a sample docker-compose file  that updates the IP section of test.domain.com every 5 minutes:
 ```
- version: '3'
+version: '3'
 services:
   DDNS:
     image: samhdabd/ddns:0.1
